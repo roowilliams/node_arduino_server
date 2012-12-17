@@ -1,3 +1,6 @@
+/* This app waits for data from the serial port, and then emits it to client side
+ as 'serialEvent' */
+
 var serialport = require("serialport"); // include the serialport library
 var SerialPort = serialport.SerialPort; // localize object constructor
 

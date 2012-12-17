@@ -2,36 +2,28 @@
 <head>
     <title>Arduino Test</title>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js"
-        type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript">
+    </script>
     <style type="text/css">
         #distance {
-        background: #ff0000;
+            background: #ff0000;
             width: 0px;
             height: 100px;
         }
     </style>
 </head>
 <body>
-<div id="distance">
-</div>
-<button type="button" onClick='butFunction'>'Idea Banked!'</button>
+    <div id="distance"></div>
 </body>
     <script>
-        var socket = io.connect();
+        var socket = io.connect('http://localhost:8080');
         socket.on('serialEvent', function (data) {
                   console.log(data);
                   var divwidth = data * 10;
                   changeProperty(divwidth);
-                  socket.emit('ideaBanked','1');
                   });
         function changeProperty(newProperty) {
         document.getElementById('distance').style.width = newProperty;
-        }
-
-        function butFunction() {
-            var senddata = 1;
-
         }
 
         </script>
